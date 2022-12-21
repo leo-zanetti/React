@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.module.scss';
 import LoginForm from './components/LoginForm';
 
-const Homepage = () => {
+const LoginPage = () => {
   return (
     <div className={styles.container}>
       <LoginForm />
@@ -10,4 +10,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default LoginPage;

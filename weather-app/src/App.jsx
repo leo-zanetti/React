@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import Homepage from './pages/Homepage';
+import LoginPage from './pages/Homepage';
 function App() {
   return (
     <>
-      <Homepage />
+      <LoginPage />
     </>
   );
 }
