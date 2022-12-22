@@ -6,19 +6,22 @@ import UserIcon from '../../assets/icons/UserIcon.svg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import generateToken from '../../utils/index';
 
 const ADMIN = 'admin';
 const admin = { username: 'admin', password: 'admin' };
+const AUTH_TOKEN = 'authToken';
 
 const LoginForm = () => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
   localStorage.setItem('admin', JSON.stringify(admin));
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const adminUser = await JSON.parse(localStorage.getItem(ADMIN));
+    const adminUser = JSON.parse(localStorage.getItem(ADMIN));
     if (
       adminUser?.username !== credentials.username ||
       adminUser?.password !== credentials.password
@@ -26,6 +29,8 @@ const LoginForm = () => {
       setError(true);
     } else {
       console.log('success');
+      sessionStorage.setItem(AUTH_TOKEN, generateToken());
+      navigate('/home');
     }
   };
   return (

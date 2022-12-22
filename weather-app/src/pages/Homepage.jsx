@@ -1,13 +1,12 @@
 import React from 'react';
-import styles from './styles.module.scss';
-import LoginForm from './components/LoginForm';
+import Navbar from '../components/Navbar';
 
-const LoginPage = () => {
+const Homepage = ({ chikdren }) => {
   return (
-    <div className={styles.container}>
-      <LoginForm />
-    </div>
+    <>
+      <p>WIP</p>
+    </>
   );
 };
 
-export default LoginPage;
+export default Homepage;
